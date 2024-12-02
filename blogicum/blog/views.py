@@ -40,6 +40,7 @@ def post_detail(request, id):
     context = {
         'post': post
     }
-    if post.is_published and post.category.is_published and post.pub_date.date() <= localdate():
+    if post.is_published and post.category.is_published\
+            and post.pub_date.date() <= localdate():
         return render(request, template_name, context)
     return HttpResponseNotFound()
